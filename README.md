@@ -1,4 +1,4 @@
-# EAIM-Net v5: Environment-Aware Adaptive Image Enhancement Network
+# EAIM-Net: Environment-Aware Adaptive Image Enhancement Network
 
 **A unified multi-degradation image enhancement framework for scene text recognition under adverse conditions.**
 
@@ -6,7 +6,7 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Dataset on Kaggle](https://img.shields.io/badge/Dataset-Kaggle-20BEFF?logo=kaggle)](https://www.kaggle.com/datasets/shilpiagrawal08/weather-text-time-wtt)
-[![Paper](https://img.shields.io/badge/Paper-Expert%20Systems%20with%20Applications-blue)](https://doi.org/XXXXX)
+
 
 > **Dataset available on Kaggle:** [Weather-Text-Time (WTT)](https://www.kaggle.com/datasets/shilpiagrawal08/weather-text-time-wtt) — 11,000 image pairs across 5 degradation types with per-image condition labels.
 
@@ -48,6 +48,12 @@ EAIM-Net handles **five environmental degradation types** in a single adaptive f
 ---
 
 ## Architecture
+
+<p align="center">
+  <img src="figures/architecture.jpg" width="750" alt="EAIM-Net Architecture"/>
+</p>
+Fig 1. Overall architecture 
+
 
 ```
 Input → EPE (98.2% weather acc.) → ESS (adaptive blend, H=0.69) → AFB (5 filters) → Enhanced
@@ -107,6 +113,8 @@ eaim_net/
 
 Each image includes a **per-image JSON label** with `weather`, `time`, and `illumination` fields — used to train the EPE classifier (98.2% accuracy).
 
+
+
 ```bash
 # Download via Kaggle CLI
 pip install kaggle
@@ -119,7 +127,7 @@ kaggle datasets download -d shilpiagrawal08/weather-text-time-wtt --unzip
 ### 1. Install
 
 ```bash
-git clone https://github.com/yourusername/eaim-net.git
+git clone https://github.com/Arni-123/eaim-net.git
 cd eaim-net
 pip install -r requirements.txt
 ```
@@ -201,11 +209,11 @@ python src/assemble_and_finetune.py \
 ## Citation
 
 ```bibtex
-@article{eaimnet2024,
+@article{eaimnet2026,
   title   = {EAIM-Net: Environment-Aware Adaptive Image Enhancement Network
              for Scene Text Recognition Under Adverse Conditions},
-  journal = {Expert Systems with Applications},
-  year    = {2024}
+  journal = {Under Review},
+  year    = {2026}
 }
 ```
 
