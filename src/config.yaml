@@ -1,0 +1,51 @@
+data:
+  image_size: 512
+  test_split: 0.1
+  train_split: 0.8
+  val_split: 0.1
+dataset_weights:
+  didmdn_weight: 1.2
+  lol_weight: 3.0
+  rain100h_weight: 1.5
+  rain100l_weight: 1.0
+model:
+  backbone: mobilenet_v3_large
+  feature_dim: 256
+  num_filters: 5
+  num_illum_classes: 3
+  num_time_classes: 4
+  num_weather_classes: 5
+paths:
+  checkpoints: ./checkpoints_v5
+  logs: ./logs_v5
+  pretrained: ./pretrained_filters
+  results: ./results_v5
+scope:
+  excluded_degradations:
+  - heavy_snow
+  exclusion_reason: "Heavy snow occludes scene text beyond recovery. Including it\
+    \ degrades all other conditions. Explicit design decision \u2014 see paper Section\
+    \ 3.1."
+  supported_degradations:
+  - low_light
+  - rain_light
+  - rain_medium
+  - rain_heavy
+  - haze_light
+  - haze_medium
+  - glare
+  - illumination_variation
+training:
+  batch_size: 4
+  cosine_T0: 10
+  grad_clip: 1.0
+  lambda_illum: 0.3
+  lambda_perceptual: 0.1
+  lambda_ssim: 0.3
+  lambda_time: 0.3
+  lambda_weather: 0.5
+  learning_rate: 5.0e-05
+  lr_epe: 5.0e-06
+  num_epochs: 80
+  phase_b_start: 10
+  weight_decay: 1.0e-05
