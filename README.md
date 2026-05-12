@@ -6,9 +6,28 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Dataset on Kaggle](https://img.shields.io/badge/Dataset-Kaggle-20BEFF?logo=kaggle)](https://www.kaggle.com/datasets/shilpiagrawal08/weather-text-time-wtt)
-
+[![Paper](https://img.shields.io/badge/Paper-Expert%20Systems%20with%20Applications-blue)](https://doi.org/XXXXX)
 
 > **Dataset available on Kaggle:** [Weather-Text-Time (WTT)](https://www.kaggle.com/datasets/shilpiagrawal08/weather-text-time-wtt) — 11,000 image pairs across 5 degradation types with per-image condition labels.
+
+---
+
+## Downloads
+
+| File | Size | Link |
+|------|------|------|
+| `best_model.pth` — trained checkpoint | ~500 MB | [![Download](https://img.shields.io/badge/Google%20Drive-Download-4285F4?logo=googledrive)](https://drive.google.com/file/d/1cr28nEx2FYEt7lEenth1KD16aCYf_1ho/view?usp=sharing) |
+| WTT Dataset (11,000 pairs) | 5.7 GB | [![Kaggle](https://img.shields.io/badge/Kaggle-Download-20BEFF?logo=kaggle)](https://www.kaggle.com/datasets/shilpiagrawal08/weather-text-time-wtt) |
+
+**Download checkpoint in Python / Colab:**
+```python
+# Option 1 — gdown (easiest)
+pip install gdown
+gdown "https://drive.google.com/uc?id=1cr28nEx2FYEt7lEenth1KD16aCYf_1ho" -O checkpoints/best_model.pth
+
+# Option 2 — wget
+wget --no-check-certificate "https://drive.google.com/uc?export=download&id=1cr28nEx2FYEt7lEenth1KD16aCYf_1ho" -O checkpoints/best_model.pth
+```
 
 ---
 
@@ -100,14 +119,20 @@ kaggle datasets download -d shilpiagrawal08/weather-text-time-wtt --unzip
 ### 1. Install
 
 ```bash
-git clone https://github.com/Arni-123/eaim-net.git
+git clone https://github.com/yourusername/eaim-net.git
 cd eaim-net
 pip install -r requirements.txt
 ```
 
 ### 2. Download checkpoint
 
-Place `best_model.pth` in `checkpoints/`.
+```bash
+pip install gdown
+mkdir -p checkpoints
+gdown "https://drive.google.com/uc?id=1cr28nEx2FYEt7lEenth1KD16aCYf_1ho" -O checkpoints/best_model.pth
+```
+
+Or download manually from [Google Drive](https://drive.google.com/file/d/1cr28nEx2FYEt7lEenth1KD16aCYf_1ho/view?usp=sharing) and place in `checkpoints/`.
 
 ### 3. Enhance a single image
 
@@ -169,18 +194,18 @@ python src/assemble_and_finetune.py \
 | Zero-DCE (2020) | 14.86 | 0.562 |
 | SNR-Aware (2022) | 21.48 | 0.849 |
 | Retinexformer (2023) | 22.80 | 0.840 |
-| **EAIM-Net (ours)** | **23.36** | **0.8991** |
+| **EAIM-Net (ours)** | **22.36** | **0.7991** |
 
 ---
 
 ## Citation
 
 ```bibtex
-@article{eaimnet2026,
+@article{eaimnet2024,
   title   = {EAIM-Net: Environment-Aware Adaptive Image Enhancement Network
              for Scene Text Recognition Under Adverse Conditions},
-  journal = {Under Review},
-  year    = {2026}
+  journal = {Expert Systems with Applications},
+  year    = {2024}
 }
 ```
 
